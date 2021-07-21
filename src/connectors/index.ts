@@ -28,6 +28,7 @@ const NETWORK_URLS: { [key in SupportedChainId]: string } = {
   [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.BSC]: 'https://speedy-nodes-nyc.moralis.io/7494f3a618ffa0656a2418bd/bsc/testnet',
 }
 
 export const network = new NetworkConnector({
@@ -67,6 +68,6 @@ export const portis = new PortisConnector({
 // mainnet only
 export const walletlink = new WalletLinkConnector({
   url: NETWORK_URLS[SupportedChainId.MAINNET],
-  appName: 'Uniswap',
+  appName: 'Pepeswap',
   appLogoUrl: UNISWAP_LOGO_URL,
 })

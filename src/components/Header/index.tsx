@@ -11,7 +11,6 @@ import { useUserHasSubmittedClaim } from 'state/transactions/hooks'
 import { useDarkModeManager } from 'state/user/hooks'
 import { useETHBalances } from 'state/wallet/hooks'
 import styled from 'styled-components/macro'
-import Logo from '../../assets/svg/logo.svg'
 import LogoDark from '../../assets/svg/logo_white.svg'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { ExternalLink, TYPE } from '../../theme'
@@ -39,7 +38,6 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
   z-index: 21;
   position: relative;
   /* Background slide effect on scroll. */
-  background-image: ${({ theme }) => `linear-gradient(to bottom, transparent 50%, ${theme.bg0} 50% )}}`};
   background-position: ${({ showBackground }) => (showBackground ? '0 -100%' : '0 0')};
   background-size: 100% 200%;
   box-shadow: 0px 0px 0px 1px ${({ theme, showBackground }) => (showBackground ? theme.bg2 : 'transparent;')};
@@ -78,7 +76,7 @@ const HeaderElement = styled.div`
   }
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
-    align-items: center;
+    align-items: left;
   `};
 `
 
@@ -159,10 +157,6 @@ const BalanceText = styled(Text)`
 `
 
 const Title = styled.a`
-  display: flex;
-  align-items: center;
-  pointer-events: auto;
-  justify-self: flex-start;
   margin-right: 12px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     justify-self: center;
@@ -264,7 +258,7 @@ export default function Header() {
       </Modal>
       <Title href=".">
         <UniIcon>
-          <img width={'24px'} src={darkMode ? LogoDark : Logo} alt="logo" />
+          <img width={'24px'} src={darkMode ? LogoDark : LogoDark} alt="logo" />
         </UniIcon>
       </Title>
       <HeaderLinks>

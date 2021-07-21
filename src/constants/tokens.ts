@@ -129,12 +129,20 @@ export const MIR = new Token(
   'MIR',
   'Wrapped MIR'
 )
+export const PT1 = new Token(
+  SupportedChainId.BSC,
+  '0x31079EB2dA957b4bbE9FD7194AE31E5C9951a7a5',
+  18,
+  'PT1',
+  'Pepe Token1'
+)
 export const UNI: { [chainId: number]: Token } = {
   [SupportedChainId.MAINNET]: new Token(SupportedChainId.MAINNET, UNI_ADDRESS[1], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.RINKEBY]: new Token(SupportedChainId.RINKEBY, UNI_ADDRESS[4], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.ROPSTEN]: new Token(SupportedChainId.ROPSTEN, UNI_ADDRESS[3], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.GOERLI]: new Token(SupportedChainId.GOERLI, UNI_ADDRESS[5], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.KOVAN]: new Token(SupportedChainId.KOVAN, UNI_ADDRESS[42], 18, 'UNI', 'Uniswap'),
+  [SupportedChainId.BSC]: new Token(SupportedChainId.BSC, UNI_ADDRESS[97], 18, 'Pp-V2', 'Pepeswap'),
 }
 
 export const WETH9_EXTENDED: { [chainId: number]: Token } = {
@@ -167,10 +175,18 @@ export const WETH9_EXTENDED: { [chainId: number]: Token } = {
     'WETH',
     'Wrapped Ether'
   ),
+  [SupportedChainId.BSC]: new Token(
+    SupportedChainId.BSC,
+    '0x6774CB231c63efAd9115d8a60DdD7Daed418d4B5',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
 }
 
 export class ExtendedEther extends Ether {
   public get wrapped(): Token {
+    console.log('chainid', this.chainId)
     if (this.chainId in WETH9_EXTENDED) return WETH9_EXTENDED[this.chainId]
     throw new Error('Unsupported chain ID')
   }

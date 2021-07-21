@@ -110,6 +110,7 @@ export const COMMON_BASES: ChainCurrencyList = {
     ExtendedEther.onChain(SupportedChainId.RINKEBY),
     WETH9_EXTENDED[SupportedChainId.RINKEBY],
   ],
+  [SupportedChainId.BSC]: [ExtendedEther.onChain(SupportedChainId.BSC), WETH9_EXTENDED[SupportedChainId.BSC]],
   [SupportedChainId.GOERLI]: [ExtendedEther.onChain(SupportedChainId.GOERLI), WETH9_EXTENDED[SupportedChainId.GOERLI]],
   [SupportedChainId.KOVAN]: [ExtendedEther.onChain(SupportedChainId.KOVAN), WETH9_EXTENDED[SupportedChainId.KOVAN]],
   [SupportedChainId.ARBITRUM_ONE]: [
@@ -128,6 +129,7 @@ export const COMMON_BASES: ChainCurrencyList = {
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
   [SupportedChainId.MAINNET]: [...WETH_ONLY[SupportedChainId.MAINNET], DAI, USDC, USDT, WBTC],
+  [SupportedChainId.BSC]: [...WETH_ONLY[SupportedChainId.MAINNET], DAI, USDC, USDT, WBTC],
 }
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
   [SupportedChainId.MAINNET]: [
